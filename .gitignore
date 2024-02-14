@@ -9,3 +9,5 @@
 __pycache__/
 *.py[cod]
 *$py.class
+convert_to_function.py
+trial.ipynb

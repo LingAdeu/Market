@@ -1,27 +1,40 @@
-# Mendefinisikan harga buah
-price_apel = 10000
-price_jeruk = 15000
-price_anggur = 20000
+import market
 
-# Meminta input jumlah buah kepada user
-n_apel = int(input('Masukkan jumlah apel: '))
-n_jeruk = int(input('Masukkan jumlah jeruk: '))
-n_anggur = int(input('Masukkan jumlah anggur: '))
+database = [
+    [0, "Apel", 20, 10_000],
+    [1, "Jeruk", 15, 15_000],
+    [2, "Anggur", 25, 20_000],
+    [3, "Nanas", 10, 25_000]
+]
 
-# Menghitung total belanjaan per buah
-total_apel = n_apel * price_apel
-total_jeruk = n_jeruk * price_jeruk
-total_anggur = n_anggur * price_anggur
+headers = ["Index", "Name", "Stock", "Price"]
 
-# Menghitung total belanjaan
-total = total_apel + total_jeruk + total_anggur
+main_menu = f"""
+List Menu:
+1. Show
+2. Add
+3. Delete
+4. Buy
+5. Exit
 
-# Show
-print(f'''Detail Belanjaan
-      
-Apel : {n_apel} x {price_apel} = {total_apel}
-Jeruk : {n_jeruk} x {price_jeruk} = {total_jeruk}
-Anggur : {n_anggur} x {price_anggur} = {total_anggur}
-      
-Total : {total}
-''')
+Which number do you want to choose?
+"""
+
+def main():
+    while True:
+        choice = input(main_menu)
+        if choice == "1":
+            market.show(database)
+        elif choice == "2":
+            market.add(database)
+        elif choice == "3":
+            market.delete(database)
+        elif choice == "4":
+            market.buy(database)
+        elif choice == "5":
+            break
+        else:
+            print("Input number 1-5")
+            continue
+
+main()
